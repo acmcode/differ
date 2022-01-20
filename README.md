@@ -27,8 +27,9 @@ strictMode: whether ignore the space and enter key or not when comparing the con
 
 ## Special test cases
 ```
-TestDiffOutV2 is to ignore the space when comparing
-TestDiffOutV5 is to ignore the enter key when comparing
+TestDiffOutV2: ignore the space when comparing
+TestDiffOutV5: ignore the enter key when comparing
+
 Welcome some other special test cases.
 ```
 
