@@ -12,10 +12,9 @@ make
 ./acmdiffer testdata/step.judger/user.out testdata/step.judger/datav5.out false false
 ```
 
-## The Function
+## The Function Definition
 ```
 func DiffOut(userOut, dataOut string, diffIgnoreHead bool, strictMode bool) (bool, error)
-
 ```
 
 ## Params
