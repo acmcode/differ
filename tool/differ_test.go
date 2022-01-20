@@ -37,6 +37,7 @@ func TestDiffOutV1(t *testing.T) {
 	}
 }
 
+// TestDiffOutV2 is to ignore the space when comparing
 func TestDiffOutV2(t *testing.T) {
 	path, err := filepath.Abs(".")
 	if err != nil {
@@ -85,6 +86,7 @@ func TestDiffOutV4(t *testing.T) {
 	}
 }
 
+// TestDiffOutV5 is to ignore the enter key when comparing
 func TestDiffOutV5(t *testing.T) {
 	path, err := filepath.Abs(".")
 	if err != nil {
