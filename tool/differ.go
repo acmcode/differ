@@ -6,6 +6,14 @@ import (
 	"strings"
 )
 
+// clearString replace all white chars
+func clearString(str string) string {
+	trimStr := strings.ReplaceAll(str, " ", "")
+	trimStr = strings.ReplaceAll(trimStr, "\n", "")
+	trimStr = strings.ReplaceAll(trimStr, "\r", "")
+	return trimStr
+}
+
 // DiffOut is to diff the output between user and testcase
 // TODO: we need to implement the "strictMode" mode in the future.
 func DiffOut(userOut, dataOut string, diffIgnoreHead bool, strictMode bool) (bool, error) {
@@ -26,12 +34,12 @@ func DiffOut(userOut, dataOut string, diffIgnoreHead bool, strictMode bool) (boo
 	srcIgnoreHead := diffIgnoreHead
 	for rd.Scan() {
 		str := rd.Text()
-		trimStr := strings.Trim(str, " ")
 		if srcIgnoreHead {
 			srcIgnoreHead = false
 		} else {
+			trimStr := clearString(str)
 			if len(trimStr) > 0 {
-				strSrc.WriteString(trimStr + " ")
+				strSrc.WriteString(trimStr)
 			}
 		}
 	}
@@ -40,12 +48,12 @@ func DiffOut(userOut, dataOut string, diffIgnoreHead bool, strictMode bool) (boo
 	dstIgnoreHead := diffIgnoreHead
 	for rd.Scan() {
 		str := rd.Text()
-		trimStr := strings.Trim(str, " ")
 		if dstIgnoreHead {
 			dstIgnoreHead = false
 		} else {
+			trimStr := clearString(str)
 			if len(trimStr) > 0 {
-				strDest.WriteString(trimStr + " ")
+				strDest.WriteString(trimStr)
 			}
 		}
 	}
