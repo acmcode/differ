@@ -2,11 +2,11 @@ package tool
 
 import (
 	"bufio"
-	"fmt"
 	"os"
 	"strings"
 )
 
+// clearString replace all white chars
 func clearString(str string) string {
 	trimStr := strings.ReplaceAll(str, " ", "")
 	trimStr = strings.ReplaceAll(trimStr, "\n", "")
@@ -57,6 +57,6 @@ func DiffOut(userOut, dataOut string, diffIgnoreHead bool, strictMode bool) (boo
 			}
 		}
 	}
-	fmt.Println(strings.Trim(strSrc.String(), " "), strings.Trim(strDest.String(), " "))
+
 	return strings.Trim(strSrc.String(), " ") == strings.Trim(strDest.String(), " "), nil
 }
