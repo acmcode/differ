@@ -15,7 +15,6 @@ func clearString(str string) string {
 }
 
 // DiffOut is to diff the output between user and testcase
-// TODO: we need to implement the "strictMode" mode in the future.
 func DiffOut(userOut, dataOut string, diffIgnoreHead bool, strictMode bool) (bool, error) {
 	src, err := os.Open(userOut)
 	if err != nil {
@@ -37,7 +36,10 @@ func DiffOut(userOut, dataOut string, diffIgnoreHead bool, strictMode bool) (boo
 		if srcIgnoreHead {
 			srcIgnoreHead = false
 		} else {
-			trimStr := clearString(str)
+			trimStr := str
+			if !strictMode {
+				trimStr = clearString(trimStr)
+			}
 			if len(trimStr) > 0 {
 				strSrc.WriteString(trimStr)
 			}
@@ -51,7 +53,10 @@ func DiffOut(userOut, dataOut string, diffIgnoreHead bool, strictMode bool) (boo
 		if dstIgnoreHead {
 			dstIgnoreHead = false
 		} else {
-			trimStr := clearString(str)
+			trimStr := str
+			if !strictMode {
+				trimStr = clearString(trimStr)
+			}
 			if len(trimStr) > 0 {
 				strDest.WriteString(trimStr)
 			}
