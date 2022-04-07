@@ -99,6 +99,14 @@ func TestDiffOutFunc(t *testing.T) {
 			strictMode: true,
 			shouldSame: false,
 		},
+		{
+			desc:       "(L)Compare tab and white characters",
+			userOut:    "userv6.out",
+			dataOut:    "datav6.out",
+			ignoreHead: true,
+			strictMode: false,
+			shouldSame: true,
+		},
 	}
 	for idx, tc := range tests {
 		t.Logf("%d. %s:\n", idx+1, tc.desc)
