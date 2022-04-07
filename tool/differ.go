@@ -9,6 +9,7 @@ import (
 // clearString replace all white chars
 func clearString(str string) string {
 	trimStr := strings.ReplaceAll(str, " ", "")
+	trimStr = strings.ReplaceAll(trimStr, "\t", "")
 	trimStr = strings.ReplaceAll(trimStr, "\n", "")
 	trimStr = strings.ReplaceAll(trimStr, "\r", "")
 	return trimStr
