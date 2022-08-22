@@ -73,7 +73,7 @@ func TestDiffOutFunc(t *testing.T) {
 			dataOut:    "datav3.out",
 			ignoreHead: false,
 			strictMode: true,
-			shouldSame: true,
+			shouldSame: false,
 		},
 		{
 			desc:       "(L)Ignore the first line",
@@ -106,6 +106,14 @@ func TestDiffOutFunc(t *testing.T) {
 			ignoreHead: true,
 			strictMode: false,
 			shouldSame: true,
+		},
+		{
+			desc:       "(L)The size of user.out is zero",
+			userOut:    "userv7.out",
+			dataOut:    "datav7.out",
+			ignoreHead: false,
+			strictMode: false,
+			shouldSame: false,
 		},
 	}
 	for idx, tc := range tests {
