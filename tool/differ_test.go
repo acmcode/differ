@@ -108,7 +108,7 @@ func TestDiffOutFunc(t *testing.T) {
 			shouldSame: true,
 		},
 		{
-			desc:       "(L)The size of user.out is zero",
+			desc:       "(L)The size of file is large than 65535 bytes",
 			userOut:    "userv7.out",
 			dataOut:    "datav7.out",
 			ignoreHead: false,
