@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-// clearString replace all white chars
+// clearString is to replace all white chars
 func clearString(str string) string {
 	trimStr := strings.ReplaceAll(str, " ", "")
 	trimStr = strings.ReplaceAll(trimStr, "\t", "")
@@ -16,12 +16,13 @@ func clearString(str string) string {
 	return trimStr
 }
 
-// clearEnter replace all '\r' chars
+// clearEnter is to replace all '\r' chars
 func clearEnter(str string) string {
 	trimStr := strings.ReplaceAll(str, "\r", "")
 	return trimStr
 }
 
+// getFileContent is to read the file content line by line and do some replaces for each lines
 func getFileContent(fileName string, diffIgnoreHead bool, strictMode bool) (string, error) {
 	src, err := os.Open(fileName)
 	if err != nil {
@@ -57,7 +58,7 @@ func getFileContent(fileName string, diffIgnoreHead bool, strictMode bool) (stri
 				}
 			}
 		}
-		if err == io.EOF {
+		if err != nil {
 			break
 		}
 	}
